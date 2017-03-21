@@ -7,5 +7,6 @@ Frequently used commands:
 ./manage.py createsuperuser --username kudep --email main@mian.ru
 
 
-Virtualenv:
+Virtualenv commands:
+virtualenv  --no-site-packages -p python3 py3demo
 pip install django
