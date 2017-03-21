@@ -8,7 +8,7 @@ from story.models import Story, Scene, Answer
 
 class SceneInline(admin.StackedInline):
     model = Answer
-    extra = 2
+    extra = 0
 #    inlines = [AnswerInline]
 
 
@@ -18,7 +18,7 @@ class SceneAdmin(admin.ModelAdmin):
 
 class StoryInline(admin.StackedInline):
     model = Scene
-    extra = 2
+    extra = 0
 #    inlines = [AnswerInline]
 
 

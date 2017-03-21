@@ -22,7 +22,6 @@ class Scene(models.Model):
         db_table = "scene"
     scene_title = models.CharField(max_length = 200)
     scene_text = models.TextField(default = "")
-    scene_text = models.TextField(default = "")
     scene_question = models.CharField(default = "",max_length = 400)
     scene_likes = models.IntegerField(default = 0 )
     scene_story = models.ForeignKey(Story)
