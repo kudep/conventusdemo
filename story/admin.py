@@ -6,20 +6,22 @@ from story.models import Story, Scene, Answer
 #    model = Answer
 #    extra = 2
 
-class SceneInline(admin.StackedInline):
+class SceneInline(admin.TabularInline):
     model = Answer
     extra = 0
-#    inlines = [AnswerInline]
 
 
 class SceneAdmin(admin.ModelAdmin):
-    fields =['scene_title', 'scene_text']
+    fields =['scene_title', 'scene_question', 'scene_story', 'scene_order']
+    list_display = ('scene_title', 'scene_question', 'scene_story', 'scene_order')
+    list_editable = ( 'scene_question', 'scene_story', 'scene_order')
     inlines = [SceneInline]
+    list_filter = ('scene_story',)
 
-class StoryInline(admin.StackedInline):
+class StoryInline(admin.TabularInline):
     model = Scene
     extra = 0
-#    inlines = [AnswerInline]
+    exclude = ['scene_likes']
 
 
 class StoryAdmin(admin.ModelAdmin):
