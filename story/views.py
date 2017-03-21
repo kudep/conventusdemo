@@ -18,12 +18,13 @@ def storytest(request):
 def scenepage(request,story_id=1,order=1):
     content={'story_id':story_id}
     content['scene']=Scene.objects.filter(scene_story_id=story_id).filter(scene_story_id=story_id).filter(scene_order=order)[0]
-    content['order']=order+1
+    content['order']=int(order)+1
+    content['answers']=Answer.objects.filter(answer_scene_id=content['scene'].id)
     if(True):
         return render_to_response('scene.html',{'story_id':content['story_id'],
     'scene':content['scene'],
     'order':content['order'],
-
+    'answers':content['answers'],
             })
 
     return render_to_response('home.html')
